@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Sidebar</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="sidebar" id="sidebar">
+        <!-- Search Btn & New Chat Btn -->
+        <button class="search-button" title="Search">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="new-chat-button" title="New Chat">
+            <i class="fas fa-plus"></i>
+        </button>
+        <ul>
+            <li>Today</li>
+            <li>Yesterday</li>
+            <li>Previous 7 Days</li>
+            <li>Previous 30 Days</li>
+        </ul>
+        <div class="logout">
+            <button id="authButton" class="logout-btn" onclick="toggleAuthState()">
+                <i id="authIcon" class="fas fa-sign-out-alt"></i>
+                <span id="authText">Logout</span>
+            </button>
+            <button class="settings-btn" onclick="toggleDropdown()">
+                <i class="fas fa-cog"></i>Settings
+            </button>
+        </div>
+        <div class="dropdown" id="dropdown">
+            <div><i class="fas fa-user"></i>Profile</div>
+            <div><i class="fas fa-bell"></i>Notifications</div>
+            <div><i class="fas fa-lock"></i>Privacy</div>
+            <div class="theme-toggle">
+                <i id="themeIcon" class="fas fa-sun"></i>
+                <span id="themeText">Light</span>
+                <label class="switch">
+                    <input id="themeToggle" type="checkbox" onclick="toggleTheme()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div id="chatArea" class="chat-area">
+            <div id="chatMessages" class="chat-messages">
+                <!-- Chat messages will appear here -->
+            </div>
+        </div>
+        <h1 id="header">What can I help with?</h1>
+                <div class="chat-box" id="chatBox">
+                    <textarea class="text-input" id="messageInput" placeholder="Type your message..."></textarea>
+                    <button class="send-button" id="sendBtn">
+                        <span class="search-icon">
+                            <img src="/icons/send.png" alt="Send" class="icon">
+                        </span>
+                    </button>
+                </div>
+        <p id="prompt">Ask Me anything.</p>
+    </div>
+    
+
+    <script src="script.js"></script>
+    <script>
+        // Correct ID and JavaScript variable usage
+        const chatBox = document.getElementById('chatBox'); // Fixed ID without trailing space
+        const sendBtn = document.getElementById('sendBtn');
+        const messageInput = document.getElementById('messageInput');
+    
+        // Event listener to toggle 'active' class
+        sendBtn.addEventListener('click', () => {
+            chatBox.classList.add('active'); // Use the correct variable 'chatBox'
+            chatArea.classList.add('active'); // Apply active to chat area after, send
+            chatMessages.classList.add('active');
+
+            // Remove the <h1> and <p> tags
+            const header = document.getElementById('header');
+            const prompt = document.getElementById('prompt');
+
+            if (header) header.remove(); // Remove the <h1>
+            if (prompt) prompt.remove(); // Remove the <p>
+        });
+    </script>
+</body>
+</html>

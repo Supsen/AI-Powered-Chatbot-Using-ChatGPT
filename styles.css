@@ -1,0 +1,484 @@
+:root {
+    --oxford-blue: #0d1a30ff;
+    --glaucous: #507dbcff;
+    --powder-blue: #a1c6eaff;
+    --columbia-blue: #bbd1eaff;
+    --platinum: #dae3e5ff;
+    --custom-blue: rgb(72, 105, 149);
+
+    --dark-1: #08131d;
+    --dark-2: #0f1d2c;
+    --dark-3: #343c4a;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", serif;
+    display: flex;
+    height: 100vh;
+    background-color: var(--dark-1);
+    color: rgb(210, 206, 206);
+}
+body.light-mode {
+    background-color: var(--platinum);
+    color: var(--glaucous);
+}
+.sidebar {
+    background-color: var(--dark-2);
+    width: 250px;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+    transition: width 0.5s ease; /*Transition Timer*/
+}
+.sidebar.light-mode {
+    background-color: var(--glaucous);
+}
+
+/* sidebar light mode */
+.sidebar.light-mode h2 {
+    background-color: var(--custom-blue); /* Light mode background color */
+    color: var(--platinum); /* Optional: Adjust text color for contrast */
+}
+
+.sidebar.light-mode {
+    color: var(--platinum); /* Set default text color for the sidebar in light mode */
+}
+
+.sidebar.light-mode ul li {
+    color: var(--platinum); /* Default text color for list items */
+}
+
+.sidebar.light-mode ul li:hover {
+    color: var(--glaucous); /* Hover color for list items */
+    background-color: var(--columbia-blue); /* Optional hover background color */
+}
+    /* Light mode styles for Logout and Settings buttons */
+    .sidebar.light-mode .logout button {
+        background-color: var(--powder-blue); /* Background color for buttons */
+        color: var(--oxford-blue); /* Text color */
+        border: 1px solid var(--glaucous); /* Optional border for buttons */
+    }
+
+    .sidebar.light-mode .logout button:hover {
+        background-color: var(--custom-blue); /* Hover background color */
+        color: var(--platinum); /* Hover text color */
+    }
+
+    .sidebar.sidebar.light-mode .logout button.logout-btn {
+        color: rgb(191, 36, 36);
+    }
+    .sidebar.sidebar.light-mode .logout button.login-btn {
+        color: rgb(53, 151, 66);
+    }
+
+    /* Light mode styles for the dropdown */
+    body.light-mode .dropdown {
+        background-color: var(--platinum); /* Light background color */
+        color: var(--oxford-blue); /* Text color */
+        border: 1px solid var(--glaucous); /* Optional border for better visibility */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    }
+
+    body.light-mode .dropdown div {
+        border-bottom: none; /* Divider color */
+        color: var(--glaucous); /* Item text color */
+    }
+
+    body.light-mode .dropdown div:hover {
+        border-radius: 8px;
+        background-color: var(--columbia-blue); /* Hover background color */
+        color: var(--glaucous); /* Hover text color */
+    }
+    body.light-mode .dropdown div:last-child {
+        border-bottom: none;
+    }
+
+
+/* end sidebar light mode */
+
+.sidebar.closed {
+    width: 0;
+    overflow: hidden;
+}
+.sidebar h2 {
+    margin: 0;
+    padding: 1rem;
+    background-color: #1a2c3d;
+    text-align: center;
+}
+
+/* Buttons in the header */
+.search-button {
+    position: absolute;
+    top: 10px;
+    left: 150px;
+    margin: 0;
+    padding: 10px;
+    background: transparent;
+    color: white;
+    position: auto;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+    .search-button:hover {
+        background: #444;
+    }
+    body.light-mode .search-button:hover {
+        background: var(--columbia-blue);
+        color: var(--glaucous);
+    }
+
+.new-chat-button {
+    position: absolute;
+    top: 10px;
+    left: 200px;
+    margin: 0;
+    padding: 10px;
+    background: transparent;
+    color: white;
+    position: auto;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+    .new-chat-button:hover {
+        background: #444;
+    }
+    body.light-mode .new-chat-button:hover {
+        background: var(--columbia-blue);
+        color: var(--glaucous);
+    }
+
+.sidebar button i{
+    font-size: 1.2rem;
+}
+.sidebar button:hover {
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+    color: var(--powder-blue); /* Optional: Highlight color */
+}
+
+.sidebar h2.light-mode {
+    background-color: var(--platinum);
+}
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 60px 0 0 0; /* Add 20px space above the list */
+    height: auto; /* Optional: Ensure height is not constrained */
+    overflow-y: auto;
+}
+.sidebar ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.sidebar ul li:hover {
+    background-color: #1a2c3d
+}
+.logout {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.logout button {
+    background-color: #444;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logout button i {
+    margin-right: 8px;
+}
+.logout button.logout-btn {
+    color: red;
+}
+.logout button.login-btn {
+    color: rgb(24, 216, 24);
+}
+.logout button.settings-btn {
+    color: white;
+}
+.logout button:hover {
+    background-color: #555;
+}
+.dropdown {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    min-width: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.dropdown.active {
+    display: flex;
+}
+.dropdown div {
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: none;
+}
+.dropdown div i {
+    font-size: 1rem;
+}
+.dropdown div:hover {
+    border-radius: 8px;
+    background-color: #444;
+}
+.dropdown div:last-child {
+    border-bottom: none;
+}
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.toggle-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #444;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.toggle-btn i {
+    font-size: 1.2rem;
+}
+.toggle-btn:hover {
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #0b3d6b;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Chat Area */
+.chat-area.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.chat-messages.active {
+    flex: 1; 
+    width: 100%;
+    max-width: 850px; /*Change to % if possible */
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    
+    display: flex;
+    flex-direction: column; /* Stack messages vertically */
+    align-items: flex-start; /* Align messages to the left by default */
+    gap: 10px; /* Add spacing between messages */
+}
+    /* body.light-mode .chat-messages.active {
+        background-color: transparent;
+        box-shadow: none;
+    } */
+
+    /* Chat message alignment */
+    /* User message styling */
+    .user-message {
+        display: inline-block;
+        background-color: var(--glaucous);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 15px;
+        word-wrap: break-word; /* Ensure long words break to the next line */
+        text-align: left; /* Keep text aligned, Text inside a message box */
+        max-width: 70%; /* Prevent messages from being too wide */
+        margin-left: auto; /* Ensure alignment to the right */
+        margin-bottom: 10px; /* Space between messages */
+        
+    }
+
+    /* Bot message styling */
+    .bot-message {
+        display: inline-block; /* Wrap background tightly around content */
+        background-color: var(--powder-blue);
+        color: var(--oxford-blue);
+        padding: 8px 12px;
+        border-radius: 15px;
+        word-wrap: break-word; /* Ensure long words break to the next line */
+        text-align: left; /* Keep text aligned */
+        max-width: 70%; /* Prevent messages from being too wide */
+        margin-right: auto; /* Ensure alignment to the left */
+        margin-bottom: 10px; /* Space between messages */
+    }
+    /* End Chat message alignment */
+/* End Chat Area */
+.chat-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto; /* Center horizontally */
+    padding: 10px;
+    border-radius: 25px; /* Rounded corners */
+    background-color: #0f1d2c;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px;
+    
+    position: relative; /* Default positioning */
+    top: 0; /* Reset top positioning */
+    transition: top 0.5s ease-in-out; /* Smooth transition for top movement */
+}
+/* When click send, chat box moves to bottom */
+    /* Define the animation */
+    /* .chat-box.active {
+        top: 38%;
+    } */
+
+.chat-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background-color: #343c4a;
+    color: white;
+    font-size: 1rem;
+}
+
+.text-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background-color: #343c4a;
+    color: white;
+    font-size: 1rem;
+    resize: none; /* Prevent manual resizing */
+    overflow: hidden; /* Hide scrollbar */
+    line-height: 1.5; /* Improve readability */
+    min-height: 40px; /* Set a minimum height */
+}
+
+.chat-input::placeholder {
+    color: #bbb; /* Placeholder text color */
+}
+
+.send-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.send-button .icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s ease;
+}
+
+.send-button:hover .icon {
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+
+/* Chat Box Light Mode */
+    /* Light mode styles for chat box */
+    body.light-mode .chat-box {
+        background-color: var(--powder-blue); /* Light background color */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    }
+
+    body.light-mode .chat-input {
+        background-color: var(--columbia-blue); /* Input field background */
+        color: var(--oxford-blue); /* Text color */
+    }
+
+    body.light-mode .text-input {
+        background-color: var(--columbia-blue); /* Input field background */
+        color: var(--oxford-blue); /* Text color */
+    }
+
+    body.light-mode .chat-input::placeholder {
+        color: var(--glaucous); /* Placeholder text color */
+    }
+
+    body.light-mode .send-button .icon {
+        filter: brightness(1); /* Adjust icon brightness for light mode */
+    }
