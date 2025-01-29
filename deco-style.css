@@ -1,0 +1,35 @@
+:root {
+    --oxford-blue: #0d1a30ff;
+    --glaucous: #507dbcff;
+    --powder-blue: #a1c6eaff;
+    --columbia-blue: #bbd1eaff;
+    --platinum: #dae3e5ff;
+    --custom-blue: rgb(72, 105, 149);
+
+    --dark-1: #08131d;
+    --dark-2: #0f1d2c;
+    --dark-3: #343c4a;
+}
+
+/* Apply to all scrollbars */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+    height: 10px; /* Height of the scrollbar (horizontal) */
+}
+
+/* Track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+    background: transparent; /* Light gray background */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Handle (thumb) of the scrollbar */
+::-webkit-scrollbar-thumb {
+    background: var(--dark-3); /* Darker gray handle */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Even darker gray on hover */
+}

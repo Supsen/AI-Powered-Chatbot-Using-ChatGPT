@@ -178,15 +178,18 @@ body.light-mode {
     background-color: #1a2c3d
 }
 .logout {
+    display: flex;
+    padding: 7px;
     position: absolute;
     bottom: 10px;
-    width: 100%;
+    width: auto;
     text-align: center;
-    display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
+    flex-wrap: wrap;
 }
 .logout button {
+    flex: 1; /*Make sure both buttons take equal space*/
     background-color: #444;
     border: none;
     padding: 10px 20px;
@@ -257,7 +260,7 @@ body.light-mode {
     position: absolute;
     top: 10px;
     left: 10px;
-    background: #444;
+    background: var(--dark-2);
     border: none;
     color: white;
     padding: 10px;
@@ -269,6 +272,26 @@ body.light-mode {
     font-size: 1.2rem;
 }
 .toggle-btn:hover {
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+    background: var(--dark-3);
+}
+
+.profile-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: var(--dark-3);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.profile-btn i {
+    font-size: 1.2rem;
+}
+.profile-btn:hover {
     transform: scale(1.1); /* Slightly enlarge the button on hover */
 }
 
@@ -330,8 +353,8 @@ input:checked + .slider:before {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    height: 100%;
-    padding: 10px;
+    height: 680px; 
+    padding: 5px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -355,12 +378,13 @@ input:checked + .slider:before {
     } */
 
     /* Chat message alignment */
+
     /* User message styling */
     .user-message {
         display: inline-block;
         background-color: var(--glaucous);
         color: white;
-        padding: 8px 12px;
+        padding: 12px 12px;
         border-radius: 15px;
         word-wrap: break-word; /* Ensure long words break to the next line */
         text-align: left; /* Keep text aligned, Text inside a message box */
@@ -375,7 +399,7 @@ input:checked + .slider:before {
         display: inline-block; /* Wrap background tightly around content */
         background-color: var(--powder-blue);
         color: var(--oxford-blue);
-        padding: 8px 12px;
+        padding: 12px 12px;
         border-radius: 15px;
         word-wrap: break-word; /* Ensure long words break to the next line */
         text-align: left; /* Keep text aligned */
@@ -389,7 +413,7 @@ input:checked + .slider:before {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px auto; /* Center horizontally */
+    margin: 5px auto; /* Center horizontally */
     padding: 10px;
     border-radius: 25px; /* Rounded corners */
     background-color: #0f1d2c;
@@ -398,14 +422,16 @@ input:checked + .slider:before {
     max-width: 600px;
     
     position: relative; /* Default positioning */
-    top: 0; /* Reset top positioning */
+    transform: translateY(0); /* Starting point */
+    
     transition: top 0.5s ease-in-out; /* Smooth transition for top movement */
 }
 /* When click send, chat box moves to bottom */
     /* Define the animation */
-    /* .chat-box.active {
-        top: 38%;
-    } */
+    .chat-box.active {
+        position: relative;
+    }
+
 
 .chat-input {
     flex: 1;
